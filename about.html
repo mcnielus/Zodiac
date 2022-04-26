@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/about1.css">
+  <title>Document</title>
+</head>
+<body>
+  <div class="banner">
+    <div class="navbar">
+        <div class="logo">Zodiac Sign</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="members.html">Members</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="calendar.html">Calendar</a></li>
+        </ul>
+    </div>
+
+    <div class="img-slider">
+      <div class="slide active">
+        <img src="img/virgo.png" alt="">
+        <div class="info">
+          <h2>What Are Scorpios Like As Friends?</h2>
+          <p>But you will have to realize that a Scorpio won't BS you or lie to you—and they will absolutely let you know when you haven't lived up to your potential. A Scorpio can be a friend for life, and can make you laugh harder, think deeper, and have more fun than you ever thought possible. </p>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="img/capricon.png" alt="">
+        <div class="info">
+          <h2>Capricorn Friendship Style</h2>
+          <p>Loyal, loving, and all about tradition, inside jokes, and the shared stories that make up friendship, Capricorn takes friendships incredibly seriously. They love taking care of their friends, and may make dinner, clean their closet, or use whatever their Capricorn strengths are to help make their friends lives better. </p>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="img/sagittarius.jpg" alt="">
+        <div class="info">
+          <h2>Sagittarius Love Style</h2>
+          <p>Sagittarius loves witty back and forths, but also appreciates the formality of the dating experience. While they are 100% honest in any situation, they love an excuse to dress up and check out cool date night locations. They would much rather go to an under the radar speakeasy than hang out at home, and love impressing you with their knowledge of, well, pretty much everything and anything.</p>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="img/hourse.webp" alt="">
+        <div class="info">
+          <h2>Horses' Horoscope for 2022</h2>
+          <p>You are predicted a smooth life and good luck with money in 2022. Your career will go smoothly, and your leaders will reward you if you go all out to fulfill your goals.<br>
+
+          In 2022, you will also enjoy good relationships. Patience and good communication will yield harmony with colleagues, friends and families</p>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="img/snake.webp" alt="">
+        <div class="info">
+          <h2>Snakes' Horoscope for 2022</h2>
+          <p>Snake people, your luck in 2022 will be moderate, with unexpected hassles, but mostly good results. You should try to keep calm when feeling upset. You’re suggested to travel for relaxation.<br>
+          Attending a wedding or birthday party will allay bad luck. 2022 is a lucky time for you to marry or move home.</p>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="img/dragon.webp" alt="">
+        <div class="info">
+          <h2>Dragon's Horoscope in 2022</h2>
+          <p>Dragons, you will have much better luck in 2022 than in 2021. Optimism will oust bad luck and increase your wealth. Your progress in 2022 will not disappoint you as long as you work hard and circumspectly.</p>
+        </div>
+      </div>
+      <div class="navigation">
+        <div class="btn active"></div>
+        <div class="btn"></div>
+        <div class="btn"></div>
+        <div class="btn"></div>
+        <div class="btn"></div>
+        <div class="btn"></div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+    var slides = document.querySelectorAll('.slide');
+    var btns = document.querySelectorAll('.btn');
+    let currentSlide = 1;
+
+    // Javascript for image slider manual navigation
+    var manualNav = function(manual){
+      slides.forEach((slide) => {
+        slide.classList.remove('active');
+
+        btns.forEach((btn) => {
+          btn.classList.remove('active');
+        });
+      });
+
+      slides[manual].classList.add('active');
+      btns[manual].classList.add('active');
+    }
+
+    btns.forEach((btn, i) => {
+      btn.addEventListener("click", () => {
+        manualNav(i);
+        currentSlide = i;
+      });
+    });
+
+    // Javascript for image slider autoplay navigation
+    var repeat = function(activeClass){
+      let active = document.getElementsByClassName('active');
+      let i = 1;
+
+      var repeater = () => {
+        setTimeout(function(){
+          [...active].forEach((activeSlide) => {
+            activeSlide.classList.remove('active');
+          });
+
+        slides[i].classList.add('active');
+        btns[i].classList.add('active');
+        i++;
+
+        if(slides.length == i){
+          i = 0;
+        }
+        if(i >= slides.length){
+          return;
+        }
+        repeater();
+      }, 5000);
+      }
+      repeater();
+    }
+    repeat();
+    </script>
+</body>
+</html>
